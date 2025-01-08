@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restoran Menüsü</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        h1 { color: #444; }
+        .menu-item { margin: 10px 0; }
+        img { max-width: 100%; height: auto; }
+        
+        /* Modal Tasarımı */
+        .modal {
+            display: none; /* Başlangıçta gizli */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5); /* Arka plan için yarı şeffaf bir renk */
+        }
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-btn:hover {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Restoran Menüsü</h1>
+    <div class="menu-item">
+        <h2>Pizza</h2>
+        <p>Lezzetli taş fırın pizzası - 80₺</p>
+    </div>
+
+    <div class="menu-item">
+        <h2>Lahmacun</h2>
+        <p>Lezzetli çetir çetir Lahmacun - 80₺</p>
+    </div>
+
+    <div class="menu-item">
+        <h2>Limonata</h2>
+        <p>Taze sıkılmış limonata - 20₺</p>
+    </div>
+
+    <!-- Modal HTML -->
+    <div id="welcomeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <h2>Hoş Geldiniz!!!</h2>
+            <p>Restoran menümüze göz atabilirsiniz!</p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Modal açma ve kapama işlemleri
+        window.onload = function() {
+            var modal = document.getElementById("welcomeModal");
+            var closeBtn = document.getElementById("closeModal");
+
+            // Sayfa yüklendiğinde modal göster
+            modal.style.display = "block";
+
+            // X butonuna basıldığında modalı kapat
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+            };
+
+            // Kullanıcı modal dışında bir yere tıkladığında kapat
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            };
+        };
+    </script>
+</body>
+</html>
